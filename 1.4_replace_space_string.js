@@ -12,18 +12,12 @@
  */
 
 function replaceSpace(str) {
-
-    const trueString = function(str) {
-        for(let i = str.length - 1; i > 0; i--) {
-            console.log(i);
-            if (str[i] !== ' ') return str.substr(0, i + 1);
+    for(let i = str.length - 1; i > 0; i--) {
+        if (str[i] !== ' ') {
+            return Array.prototype.map.call(str.substr(0, i + 1), function(c) {
+                if (c === ' ') return '%20';
+                return c;
+            }).join('');
         }
-    };
-
-    const newString = Array.prototype.map.call(trueString(str), function (c) {
-        if (c === ' ') return '%20';
-        return c;
-    }).join('');
-
-    return newString;
+    }
 }
