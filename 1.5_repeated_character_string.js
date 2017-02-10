@@ -7,7 +7,7 @@
  */
 
 //Case Sensitive
-function compressString(str) {
+function compressStringWhile(str) { //faster
     let newString = "";
     let count = 1;
     let char = str[0];
@@ -30,7 +30,7 @@ function compressString(str) {
 }
 
 //Case Sensitive
-function compressString(str) {
+function compressStringMap(str) {
     let chars = [];
 
     Array.prototype.map.call(str, function (c) {
@@ -45,3 +45,11 @@ function compressString(str) {
 
     return chars.length >= str ? str : chars.join('');
 }
+
+console.time("compressStringWhile");
+compressStringWhile('aaaaabwjwkbbbbbbbbbbbbbbbBB');
+console.timeEnd("compressStringWhile");
+
+console.time("compressStringMap");
+compressStringMap('aaaaabwjwkbbbbbbbbbbbbbbbBB');
+console.timeEnd("compressStringMap");
