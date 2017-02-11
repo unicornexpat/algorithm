@@ -3,10 +3,6 @@
  */
 
 class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
   push(val) {
     const node = {
       value: val,
@@ -25,7 +21,7 @@ class LinkedList {
   }
 }
 
-var sll = new LinkedList();
+let sll = new LinkedList();
 
 //push node
 sll.push(2);
