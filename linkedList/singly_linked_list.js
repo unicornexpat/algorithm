@@ -99,14 +99,13 @@ function reverse(list) {
   let current = list.head.next;
 
   let previous = this.head;
-  let currentCopy;
+  let temp;
 
-  while (current.next) {
-    currentCopy = Object.assign({}, current);
+  while (current) {
+    temp = Object.assign({}, current);
     current.next = previous;
-    previous = currentCopy;
-    console.log(currentCopy);
-    current = currentCopy.next;
+    previous = temp;
+    current = temp.next;
   }
 
   //old hea now become tail hence need to point to null

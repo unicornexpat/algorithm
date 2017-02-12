@@ -22,8 +22,28 @@ class DoublyLinkedList {
   }
 }
 
+function reverse(list) {
+  let current = list.head;
+  let temp;
+
+  while (current) {
+    temp = current.next;
+    current.next = current.previous;
+    current.previous = temp;
+
+    if (!temp) list.head = current;
+
+    current = temp;
+  }
+
+  return list;
+}
+
 let dll = new DoublyLinkedList();
 dll.push(2);
 dll.push(3);
 dll.push(4);
 dll.push(5);
+
+reverse(dll);
+dll.head.next.next.next.next;
