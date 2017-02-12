@@ -47,3 +47,8 @@ dll.push(5);
 
 reverse(dll);
 dll.head.next.next.next.next;
+
+
+/*
+ Question: How could you get the Kth node from the end (no loop)
+ */
