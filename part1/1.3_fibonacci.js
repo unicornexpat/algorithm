@@ -18,7 +18,7 @@ fibonacci(12);
 
 function fibonacciRec(n) {
   if (n <= 1) return n;
-  else return fibonacciRec(n-1) + fibonacciRec(n-2);
+  else return fibonacciRec(n - 1) + fibonacciRec(n - 2);
 }
 
 fibonacciRec(12);
