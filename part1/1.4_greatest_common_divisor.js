@@ -32,3 +32,12 @@ function greatestCommonDivisor(a, b) {
 
     return greatest;
 }
+
+greatestCommonDivisor(14, 21);
+
+//recursive
+function greatestCommonDivisor(a, b) {
+    if (b == 0) return a;
+    else greatestCommonDivisor(b, a%b);
+}
+
