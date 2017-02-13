@@ -41,3 +41,16 @@ function greatestCommonDivisor(a, b) {
     else greatestCommonDivisor(b, a%b);
 }
 
+function greatestCommonDivisor(a, b) {
+
+    let tmp;
+
+    while (b !== 0) {
+        tmp = b;
+        b = a%tmp;
+        a = tmp;
+    }
+
+    return tmp;
+}
+
