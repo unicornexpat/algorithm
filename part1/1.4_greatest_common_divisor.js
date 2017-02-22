@@ -1,7 +1,6 @@
 /*
  Question: How would you find the greatest common divisor of two numbers?
  */
-
 //Using array index
 function divisors(n) {
     let divisors = [];
@@ -41,6 +40,9 @@ function greatestCommonDivisor(a, b) {
     else greatestCommonDivisor(b, a%b);
 }
 
+greatestCommonDivisor(14, 21);
+
+
 function greatestCommonDivisor(a, b) {
 
     let tmp;
@@ -54,3 +56,14 @@ function greatestCommonDivisor(a, b) {
     return tmp;
 }
 
+greatestCommonDivisor(14, 21);
+
+function greatestCommonDivisor(a, b) {
+    while (a !== b) {
+        if (a > b) a = a - b;
+        else b = b - a;
+    }
+    return a;
+}
+
+greatestCommonDivisor(14, 21);
