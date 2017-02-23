@@ -24,8 +24,6 @@ function longestString(s) {
         usedChar[s[i]] = i;
     }
 
-    console.log(usedChar);
-
     return maxLength;
 }
 
