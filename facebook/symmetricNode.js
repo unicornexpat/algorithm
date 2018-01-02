@@ -1,7 +1,7 @@
 //Given two identical DOM tree structures, A and B, and a node from A, find the corresponding node in B.
 
 //Return chidlrens of a node in an array
-function getChildrent(node) {
+function getChildren(node) {
   return Array.from(node.childNodes);
 }
 
@@ -11,7 +11,7 @@ function getPath(root, node) {
   let currentElement = node;
 
   while(currentElement !== root && currentElement && currentElement.parentNode) {
-    const index = getChildrent(currentElement.parentNode).indexOf(node);
+    const index = getChildren(currentElement.parentNode).indexOf(node);
     path.push(index);
     currentElement = currentElement.parentNode;
   }
