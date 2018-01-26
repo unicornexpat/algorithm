@@ -1,5 +1,9 @@
 //Tree implementation
 
+const printNode = (value) => {
+  console.log(value);
+};
+
 class Node {
   constructor(key = null) {
     this.key = key;
@@ -26,6 +30,8 @@ class BinarySearchTree {
     this.maxNode = this.maxNode.bind(this);
     this.search = this.search.bind(this);
     this.searchNode = this.searchNode.bind(this);
+    this.remove = this.remove.bind(this);
+    this.removeNode = this.removeNode.bind(this);
   }
 
   //Inserting a node to the tree
@@ -125,14 +131,46 @@ class BinarySearchTree {
       else if(key > node.key) return this.searchNode(node.right, key);
       else if(key < node.key) return this.searchNode(node.left, key);
     }
-    return null;
+    return false;
+  }
+
+  //Remove a node
+  remove(key) {
+    this.root = this.removeNode(this.root, key);
+  }
+
+  removeNode(node, key) {
+    if (node === null) return null;
+    if (key < node.key) {
+      node.left = this.removeNode(node.left, key);
+      return node;
+    } else if (key > node.key) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    } else { //found key now start removing
+      //case 1 - left node
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node;
+      }
+
+      //case 2 - a node with 1 child
+      if (node.left === null) {
+        node = node.right;
+        return node;
+      } else if (node.right === null) {
+        node = node.left;
+        return node;
+      }
+
+      //case 3 - a node with 2 children
+      const auxKey = this.minNode(node.right);
+      node.key = auxKey;
+      node.right = this.removeNode(node.right, auxKey);
+      return node;
+    }
   }
 }
-
-const printNode = (value) => {
-  console.log(value);
-};
-
 
 let tree = new BinarySearchTree();
 tree.insert(11);
@@ -150,4 +188,6 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-console.log(tree.search(10));
+tree.remove(15);
+
+console.log(tree.root.right);
