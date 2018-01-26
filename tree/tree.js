@@ -14,6 +14,7 @@ class BinarySearchTree {
 
     this.insertNode = this.insertNode.bind(this);
     this.insert = this.insert.bind(this);
+    this.inOrderTraverse = this.inOrderTraverse.bind(this);
   }
 
   //Inserting a node to the tree
@@ -32,7 +33,25 @@ class BinarySearchTree {
       else this.insertNode(node.right, newNode);
     }
   };
+
+  //In-order tranverse
+  inOrderTraverse(callback) {
+    this.inOrderTraverseNode(this.root, callback)
+  }
+
+  inOrderTraverseNode(node, callback) {
+    if (node !== null) {
+      this.inOrderTraverseNode(node.left, callback);
+      callback(node.key);
+      this.inOrderTraverseNode(node.right, callback)
+    }
+  }
 }
+
+function printNode(value) {
+  console.log(value);
+}
+
 
 let tree = new BinarySearchTree();
 tree.insert(11);
@@ -50,4 +69,4 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-console.log(tree.root.left.key);
+tree.inOrderTraverse(printNode);
