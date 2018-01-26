@@ -24,6 +24,8 @@ class BinarySearchTree {
     this.minNode = this.minNode.bind(this);
     this.max = this.max.bind(this);
     this.maxNode = this.maxNode.bind(this);
+    this.search = this.search.bind(this);
+    this.searchNode = this.searchNode.bind(this);
   }
 
   //Inserting a node to the tree
@@ -111,6 +113,20 @@ class BinarySearchTree {
     }
     return null;
   }
+
+  //Search
+  search(key) {
+    return this.searchNode(this.root, key);
+  }
+
+  searchNode(node, key) {
+    if (node && key) {
+      if (key === node.key) return node;
+      else if(key > node.key) return this.searchNode(node.right, key);
+      else if(key < node.key) return this.searchNode(node.left, key);
+    }
+    return null;
+  }
 }
 
 const printNode = (value) => {
@@ -134,4 +150,4 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-console.log(tree.max());
+console.log(tree.search(10));
