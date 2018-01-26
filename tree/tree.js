@@ -15,6 +15,11 @@ class BinarySearchTree {
     this.insertNode = this.insertNode.bind(this);
     this.insert = this.insert.bind(this);
     this.inOrderTraverse = this.inOrderTraverse.bind(this);
+    this.inOrderTraverseNode = this.inOrderTraverseNode.bind(this);
+    this.preOrderTraverse = this.preOrderTraverse.bind(this);
+    this.preOrderTraverseNode = this.preOrderTraverseNode.bind(this);
+    this.postOrderTraverse = this.postOrderTraverse.bind(this);
+    this.postOrderTraverseNode = this.postOrderTraverseNode.bind(this);
   }
 
   //Inserting a node to the tree
@@ -34,7 +39,7 @@ class BinarySearchTree {
     }
   };
 
-  //In-order tranverse
+  //In-order traverse
   inOrderTraverse(callback) {
     this.inOrderTraverseNode(this.root, callback)
   }
@@ -46,11 +51,39 @@ class BinarySearchTree {
       this.inOrderTraverseNode(node.right, callback)
     }
   }
+
+  //Pre-order transverse
+  preOrderTraverse(callback) {
+    this.preOrderTraverseNode(this.root, callback)
+  }
+
+  preOrderTraverseNode(node, callback) {
+    if (node !== null) {
+      callback(node.key);
+      this.preOrderTraverseNode(node.left, callback);
+      this.preOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  //Post-order transverse
+  postOrderTraverse(callback) {
+    this.postOrderTraverseNode(this.root, callback)
+  }
+
+  postOrderTraverseNode(node, callback) {
+    if (node !== null) {
+      this.postOrderTraverseNode(node.left, callback);
+      this.postOrderTraverseNode(node.right, callback);
+      callback(node.key);
+    }
+  }
+
+
 }
 
-function printNode(value) {
+const printNode = (value) => {
   console.log(value);
-}
+};
 
 
 let tree = new BinarySearchTree();
@@ -69,4 +102,4 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-tree.inOrderTraverse(printNode);
+tree.postOrderTraverse(printNode);
