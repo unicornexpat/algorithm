@@ -20,6 +20,10 @@ class BinarySearchTree {
     this.preOrderTraverseNode = this.preOrderTraverseNode.bind(this);
     this.postOrderTraverse = this.postOrderTraverse.bind(this);
     this.postOrderTraverseNode = this.postOrderTraverseNode.bind(this);
+    this.min = this.min.bind(this);
+    this.minNode = this.minNode.bind(this);
+    this.max = this.max.bind(this);
+    this.maxNode = this.maxNode.bind(this);
   }
 
   //Inserting a node to the tree
@@ -78,7 +82,35 @@ class BinarySearchTree {
     }
   }
 
+  //Search for min value
+  min() {
+    return this.minNode(this.root);
+  }
 
+  minNode(node) {
+    if (node) {
+      while(node && node.left !== null) {
+        node = node.left;
+      }
+      return node.key;
+    }
+    return null;
+  }
+
+  //Search for min value
+  max() {
+    return this.maxNode(this.root);
+  }
+
+  maxNode(node) {
+    if (node) {
+      while(node && node.right !== null) {
+        node = node.right;
+      }
+      return node.key;
+    }
+    return null;
+  }
 }
 
 const printNode = (value) => {
@@ -102,4 +134,4 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-tree.postOrderTraverse(printNode);
+console.log(tree.max());
