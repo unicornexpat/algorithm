@@ -14,3 +14,20 @@ function romanize(number) {
 }
 
 romanize(1984);
+
+function deromanize( roman ) {
+  const roman = roman.toUpperCase();
+  const lookup = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+  let arabic = 0;
+  let i = roman.length;
+
+  while (i--) {
+    if (lookup[roman[i]] < lookup[roman[i+1]])
+      arabic -= lookup[roman[i]];
+    else
+      arabic += lookup[roman[i]];
+  }
+  return arabic;
+}
+
+deromanize("MCMLXXXIV");
