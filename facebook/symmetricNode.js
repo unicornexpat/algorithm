@@ -27,7 +27,7 @@ function getNodeByPath(root, originalPath) {
   let element = root;
 
   while(path.length) {
-    element = getChildrent(element)[path.pop()];
+    element = getChildren(element)[path.pop()];
   }
 
   return element;
