@@ -5,8 +5,6 @@
 function binaryIndexOf(arr, target) {
     let minIndex = 0;
     let maxIndex = arr.length - 1;
-    let currentIndex;
-    let currentElement;
 
     while (minIndex < maxIndex) {
         let currentIndex = Math.floor((maxIndex + minIndex) / 2);
