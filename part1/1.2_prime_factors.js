@@ -19,4 +19,4 @@ function primeFactor(n) {
   return factors;
 }
 
-primeFactor(864);
+console.log(primeFactor(864));
