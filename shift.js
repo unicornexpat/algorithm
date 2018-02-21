@@ -18,8 +18,7 @@ function getShiftedString(s, leftShifts, rightShifts) {
 }
 
 function getShiftedStringByO1(s, leftShifts, rightShifts) {
-  const shift = rightShifts - leftShifts;
-  console.log(shift);
+  const shift = (rightShifts - leftShifts) % s.length;
 
   if (shift > 0) {
     const shiftPart = s.slice(-shift);
