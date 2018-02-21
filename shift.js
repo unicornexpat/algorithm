@@ -1,7 +1,7 @@
 function getShiftedString(s, leftShifts, rightShifts) {
   let array = s.split("");
 
-  const shift = -leftShifts + rightShifts;
+  const shift = (-leftShifts + rightShifts) % s.length;
 
   let newArray = [];
 
@@ -31,4 +31,4 @@ function getShiftedStringByO1(s, leftShifts, rightShifts) {
   }
 }
 
-console.log(getShiftedStringByO1("abcdefg", 1, 21));
+console.log(getShiftedStringByO1("abcdefg", 2, 1));
