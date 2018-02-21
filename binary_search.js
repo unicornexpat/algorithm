@@ -2,7 +2,7 @@
  Binary search. Return index of element
  */
 
-function binaryIndexOf(arr, target) {
+function binaryIndexOf(arr, k) {
     let minIndex = 0;
     let maxIndex = arr.length - 1;
 
@@ -10,15 +10,15 @@ function binaryIndexOf(arr, target) {
         let currentIndex = Math.floor((maxIndex + minIndex) / 2);
         let currentElement = arr[currentIndex];
 
-        if (currentElement < target) {
+        if (currentElement < k) {
             minIndex = currentIndex + 1;
-        } else if (currentElement > target) {
+        } else if (currentElement > k) {
             maxIndex = currentIndex - 1;
         } else {
-            return currentIndex;
+            return "NO";
         }
     }
-    return -1;
+    return "YES";
 }
 
 console.log(binaryIndexOf([1,3,4,5,8,23], 5));
