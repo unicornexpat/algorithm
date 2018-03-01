@@ -11,7 +11,7 @@ function getPath(root, node) {
   let currentElement = node;
 
   while(currentElement !== root && currentElement && currentElement.parentNode) {
-    const index = getChildren(currentElement.parentNode).indexOf(node);
+    const index = getChildren(currentElement.parentNode).indexOf(currentElement);
     path.push(index);
     currentElement = currentElement.parentNode;
   }
