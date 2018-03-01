@@ -12,6 +12,4 @@ function performOps(A){
 const A = [5, 10, 2, 1];
 
 const B = performOps(A);
-// for (var i = 0; i < B.length; i++) {
-//   process.stdout.write(B[i]+" ");
-// }
+console.log(B);
