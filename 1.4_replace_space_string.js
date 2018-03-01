@@ -21,3 +21,27 @@ function replaceSpace(str) {
         }
     }
 }
+
+function replaceSpace2(str) {
+    //remove back " "
+  let i = str.length - 1;
+
+  while(i--) {
+    if (str[i] !== " ") break;
+  }
+
+  let newStr = str.substr(0, i + 1);
+
+  let strArr = newStr.split("");
+  let spaceIndex = strArr.indexOf(" ");
+
+  while(spaceIndex >= 0) {
+      strArr[spaceIndex] = "%20";
+      spaceIndex = strArr.indexOf(" ");
+  }
+  return strArr.join("");
+}
+
+const input = "Mr John Smith    ";
+
+console.log(replaceSpace2(input));

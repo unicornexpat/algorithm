@@ -13,10 +13,10 @@ function romanize(number) {
   return Array(+digits.join() + 1).join('M') + roman;
 }
 
-romanize(1984);
+console.log(romanize(1984));
 
 function deromanize( roman ) {
-  const roman = roman.toUpperCase();
+  roman = roman.toUpperCase();
   const lookup = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
   let arabic = 0;
   let i = roman.length;
@@ -30,4 +30,4 @@ function deromanize( roman ) {
   return arabic;
 }
 
-deromanize("MCMLXXXIV");
+console.log(deromanize("MCMLXXXIV"));

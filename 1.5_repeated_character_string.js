@@ -34,7 +34,7 @@ function compressStringMap(str) {
     let chars = [];
 
     Array.prototype.map.call(str, function (c) {
-        if (Number.isInteger(chars[chars.length -1])) {
+        if (Number.isInteger(chars[chars.length -1])) {//mat continue counting
             if (c === chars[chars.length - 2]) chars[chars.length - 1] += 1;
             else chars.push(c);
         } else {

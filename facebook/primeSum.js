@@ -71,7 +71,7 @@ function isPrime(n) {
 
 function primeSumeByIsPrime(A) {
   for (let i = 2; i < A; i++ ){
-    if (isPrime(A - i)) return [i, A - i];
+    if (isPrime(i) && isPrime(A - i)) return [i, A - i];
   }
 }
 
