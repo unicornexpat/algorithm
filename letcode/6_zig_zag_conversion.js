@@ -14,22 +14,31 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 const convert = function(s, numRows) {
   let string = s.split("");
   let result = [];
+  let row = numRows;
 
   let index = 0;
   let zag = false;
+  let column = 0;
 
   while (string.length > 0) {
-    while (index < numRows) { //zig loop
-      result[index] = string.shift();
-      index++;
+    while (index < row && !zag) { //zig loop
+      console.log('zig');
+      let arr = result[index] ? result[index] : [];
+      arr.push(string.shift());
+      result[index++] = arr;
     }
 
-    while (numRows >= 0) {
-      result
+    while (row > 0 && zag) { //zag
+      let arr = result[column] ? result[column] : [];
+      arr.push(string.shift());
+      result[column] = arr;
+      column++;
     }
 
+    row = numRows;
     index = 0;
     zag = !zag;
+    console.log(row, index, zag, column, result);
   }
 };
 
