@@ -6,6 +6,7 @@ function countingSort(arr, min, max) {
     let i;
     let z = 0;
     let count = [];
+    let sortedArr = [];
 
     for (i = min; i <= max; i++) {
         count[i] = 0;
@@ -17,12 +18,12 @@ function countingSort(arr, min, max) {
 
     for (i = min; i <= max; i++) {
         while (count[i]-- > 0) {
-            arr[z++] = i;
+            sortedArr[z++] = i;
         }
     }
 
-    return arr;
+    return sortedArr;
 }
 
-countingSort([5,3,2,0,6,4,3,6,10,0,3,2], 0, 4);
+console.log(countingSort([5,3,2,0,6,4,3,6,10,0,3,2], 0, 10));
 
