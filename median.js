@@ -1,7 +1,7 @@
 const array = [1, 3, 7, 8];
 const secondArray = [2, 7, 10, 11];
 
-// Binary search
+// median
 function median(array1, array2) {
 	const array = [];
 	const isOdd = !!((array1.length + array2.length) % 2);
