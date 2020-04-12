@@ -1,4 +1,4 @@
-//Selection Sort
+//Quick Sort
 function quickSort(arr, left = 0, pivot = arr.length -1) {
   if (left < pivot) {
     for (let i = left; i < pivot; i++) {
@@ -10,7 +10,7 @@ function quickSort(arr, left = 0, pivot = arr.length -1) {
     swap(arr, left, pivot);
 
     quickSort(arr, 0, left - 1);
-    quickSort(arr, left, pivot)
+    quickSort(arr, left + 1, pivot)
   }
   return arr;
 }
@@ -22,4 +22,4 @@ function swap(arr, i, j) {
   return arr;
 }
 
-console.log(quickSort([6, 5, 1, 3, 8, 3, 7, 2, 4, 7, 9, 2]));
+console.log(quickSort([6, 5, 1, 7, 4, 3, 10, 12, 11, 6, 3]));
