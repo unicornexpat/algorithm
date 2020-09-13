@@ -1,4 +1,5 @@
 /**
+Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)

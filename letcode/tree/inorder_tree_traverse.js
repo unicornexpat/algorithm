@@ -1,4 +1,6 @@
 /**
+In-order traversal is to traverse the left subtree first. Then visit the root. Finally, traverse the right subtree.
+
 Input: [1,null,2,3]
    1
     \
