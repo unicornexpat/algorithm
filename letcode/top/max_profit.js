@@ -5,7 +5,7 @@ Find the maximum profit you can achieve. You may complete as many transactions a
 
 Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
 */
-var maxProfit = function(prices) {
+var maxProfitByTopBottom = function(prices) {
     let i =0;
     let maxProfit = 0;
     let top = prices[0];
@@ -25,5 +25,16 @@ var maxProfit = function(prices) {
     return maxProfit;
 };
 
-const prices = [7,1,5,3,6,4];
+var maxProfit = function(prices) {
+    let maxProfit = 0;
+    for(let i = 0; i < prices.length - 1; i++) {
+    	if(prices[i] < prices[i+1]) {
+    		maxProfit += prices[i+1] - prices[i];
+    	}
+    }
+
+    return maxProfit;
+};
+
+const prices = [1, 7, 2, 3, 6, 7, 6, 7];
 console.log(maxProfit(prices));
