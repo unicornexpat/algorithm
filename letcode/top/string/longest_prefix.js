@@ -10,7 +10,7 @@ Example 1:
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
 */
-var longestCommonPrefix = function(strs) {
+var longestCommonPrefixHorizontial = function(strs) {
     if (strs.length === 0) return '';
     let prefix = strs[0];
     for(let i = 0; i < strs.length; i++) {
@@ -22,5 +22,21 @@ var longestCommonPrefix = function(strs) {
     return prefix;
 };
 
-const strs = ["c","acc","ccc"];
+//faster
+var longestCommonPrefix = function(strs) {
+    if (strs.length === 0) return '';
+    let prefix = strs[0];
+    for(let i = 0; i < prefix.length; i++) {
+    	const c = prefix[i];
+    	for(let j = 0; j < strs.length; j++) {
+    		if(i === strs[j].length || strs[j][i] !== c) {
+    			return prefix.slice(0, i);
+    		}
+    	}
+    }
+    return prefix;
+};
+
+const strs1 = ["c","acc","ccc"];
+const strs = ["flower","flow","flight"];
 console.log(longestCommonPrefix(strs));
