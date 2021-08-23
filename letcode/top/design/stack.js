@@ -39,6 +39,7 @@ function lastItem(arr) {
 var MinStack = function() {
     this.stack = [];
     this.minVal = [];
+    this.maxVal = [];
 };
 
 /** 
@@ -47,10 +48,18 @@ var MinStack = function() {
  */
 MinStack.prototype.push = function(val) {
 	this.stack.push(val);
+	// Min handling
 	if (this.minVal.length === 0 || val < this.getMin()) {
 		this.minVal.push([val, 1]);
 	} else if (val === this.getMin()) {
 		lastItem(this.minVal)[1]++;
+	}
+
+	// Max handling
+	if (this.maxVal.length === 0 || val > this.getMax()) {
+		this.maxVal.push([val, 1]);
+	} else if (val === this.getMax()) {
+		lastItem(this.maxVal)[1]++;
 	}
 };
 
@@ -60,6 +69,9 @@ MinStack.prototype.push = function(val) {
 MinStack.prototype.pop = function() {
 	if (lastItem(this.stack) === this.getMin()) {
 		lastItem(this.minVal)[1] === 1 ? this.minVal.pop() : lastItem(this.minVal)[1]--;
+	}
+	if (lastItem(this.stack) === this.getMax()) {
+		lastItem(this.maxVal)[1] === 1 ? this.maxVal.pop() : lastItem(this.maxVal)[1]--;
 	}
     this.stack.pop();
 };
@@ -76,4 +88,12 @@ MinStack.prototype.top = function() {
  */
 MinStack.prototype.getMin = function() {
     return lastItem(this.minVal) ? lastItem(this.minVal)[0] : undefined;
+};
+
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMax = function() {
+    return lastItem(this.maxVal) ? lastItem(this.maxVal)[0] : undefined;
 };
