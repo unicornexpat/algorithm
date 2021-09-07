@@ -3,7 +3,7 @@ Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
 
 Notice that the solution set must not contain duplicate triplets.
 */
-var threeSum = function(numbers) {
+var threeSumPonters = function(numbers) {
     let res = [];
     numbers.sort((a, b) => a - b);
     for (let i = 0; i < numbers.length && numbers[i] <= 0; i++) {
@@ -28,8 +28,31 @@ var threeSum = function(numbers) {
     return res;
 };
 
+var threeSum = function(numbers) {
+    let res = [];
+    numbers.sort((a, b) => a - b);
+    for (let i = 0; i < numbers.length && numbers[i] <= 0; i++) {
+        if (numbers[i] === 0 || numbers[i-1] !== numbers[i]){
+            let map = new Map();
+            for (let j = i +1; j < numbers.length; j++) {
+                let complement = - numbers[i] - numbers[j];
+                if (map.get(complement) !== undefined) {
+                    res.push([numbers[i], numbers[j], map.get(complement)])
+                    while(j + 1 < numbers.length && numbers[j] === numbers[j + 1]) {
+                        ++j;
+                    }
+                } else {
+                   map.set(numbers[j], numbers[j]);
+                }
+            }
+        }
+    }
+    return res;
+}
 
-const nums = [-1,0,1,2,-1,-4];
+
+
+const nums = [0, 0, 0];
 
 //Output: [[-1,-1,2],[-1,0,1]]
 
